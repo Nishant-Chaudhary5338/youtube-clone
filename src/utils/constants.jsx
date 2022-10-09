@@ -10,7 +10,7 @@ import { CgGym } from "react-icons/cg";
 import { BiMovie } from "react-icons/bi";
 
 export const videoCategories = [
-  { name: "New", icon: <HiHome color="white" /> },
+  { name: "Trending", icon: <HiHome color="white" /> },
   { name: "CodeYogi", icon: <HiCode color="white" /> },
   { name: "JS Mastery", icon: <HiCode color="white" /> },
   { name: "React Js", icon: <FaReact color="white" /> },
