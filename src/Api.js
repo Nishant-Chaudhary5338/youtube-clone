@@ -1,23 +1,19 @@
 /** @format */
 import axios from "axios";
-
-const BASE_URL = "https://youtube-v31.p.rapidapi.com/search";
+const BASE_URL = "https://youtube-v3-alternative.p.rapidapi.com";
 
 const options = {
-  url: BASE_URL,
-  params: {
-    maxResults: "50",
-  },
+  params: { geo: "US", lang: "en" },
   headers: {
     "X-RapidAPI-Key": "6aa46a3947msh16ef00bcf3c4794p1701f5jsn486f8e3b84fb",
-    "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+    "X-RapidAPI-Host": "youtube-v3-alternative.p.rapidapi.com",
   },
 };
 
-export const getVideos = async (url) => {
+export const getVideos = async (q) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${url}`, options);
-    const videos = response.data;
+    const response = await axios.get(`${BASE_URL}/${q}`, options);
+    const videos = response.data.data;
     return videos;
   } catch {
     console.log("fetching failed");
