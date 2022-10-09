@@ -6,11 +6,11 @@ import VideoCard from "./VideoCard";
 
 const VideoRow = ({ videos }) => {
   return (
-    <div>
+    <div className="flex flex-wrap justify-start">
       {videos.map((item, idx) => (
-        <div className="flex flex-wrap justify-start" key={idx}>
-          {item.videoId && <VideoCard video={item} />}
-          {item.channelId && <ChannelCard ChannelDetail={item} />}
+        <div key={idx}>
+          {item.type === "video" && <VideoCard video={item} />}
+          {item.type === "channel" && <ChannelCard channel={item} />}
         </div>
       ))}
     </div>

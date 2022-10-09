@@ -5,7 +5,7 @@ import { videoCategories } from "../utils/constants";
 
 const SideBar = ({ selectedCategory, setselectedCategory }) => {
   return (
-    <div className="hidden w-40 border-r-2 border-gray-800 sm:block">
+    <div className="sticky top-0 hidden h-screen border-r-2 border-gray-800 sm:w-60 sm:block">
       {videoCategories.map((v) => (
         <div
           key={v.name}

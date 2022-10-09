@@ -6,7 +6,7 @@ import SideBar from "./SideBar";
 import VideoRow from "./VideoRow";
 
 const Feed = () => {
-  const [selectedCategory, setselectedCategory] = useState("New");
+  const [selectedCategory, setselectedCategory] = useState("Trending");
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     const token = getVideos(`search?query=${selectedCategory}`);
@@ -17,7 +17,7 @@ const Feed = () => {
   }, [selectedCategory]);
 
   return (
-    <div className="flex h-screen bg-black border-t-2 border-gray-800">
+    <div className="flex bg-black border-t-2 border-gray-800 h-100vh">
       <SideBar
         selectedCategory={selectedCategory}
         setselectedCategory={setselectedCategory}
@@ -26,7 +26,9 @@ const Feed = () => {
         <h4 className="pl-2 text-2xl font-bold text-white">
           {selectedCategory}
         </h4>
-        <VideoRow videos={videos} />
+        <div className="mx-10">
+          <VideoRow videos={videos} />
+        </div>
       </div>
     </div>
   );
