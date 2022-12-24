@@ -9,8 +9,8 @@ const VideoRow = ({ videos }) => {
     <div className="flex flex-wrap justify-start">
       {videos.map((item, idx) => (
         <div key={idx}>
-          {item.type === "video" && <VideoCard video={item} />}
-          {item.type === "channel" && <ChannelCard channel={item} />}
+          {item.id.videoId && <VideoCard video={item} />}
+          {item.id.channelId && <ChannelCard channelDetail={item} />}
         </div>
       ))}
     </div>

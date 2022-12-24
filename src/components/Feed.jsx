@@ -2,7 +2,7 @@
 
 import { Box, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { getVideos } from "../utils/Api";
+import { fetchFromAPI, getVideos } from "../utils/Api";
 import SideBar from "./SideBar";
 import VideoRow from "./VideoRow";
 
@@ -10,10 +10,10 @@ const Feed = () => {
   const [selectedCategory, setselectedCategory] = useState("Trending");
   const [videos, setVideos] = useState([]);
   useEffect(() => {
-    const token = getVideos(`search?query=${selectedCategory}`);
+    const token = fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
     token.then((v) => {
-      setVideos(v);
-      console.log(v);
+      setVideos(v.items);
+      console.log(v.items);
     });
   }, [selectedCategory]);
   return (

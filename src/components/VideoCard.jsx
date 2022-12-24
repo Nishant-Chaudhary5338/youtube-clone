@@ -3,25 +3,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({
+  video: {
+    id: { videoId },
+    snippet,
+  },
+}) => {
   return (
-    <Link
-      to={video.videoId ? `video/${video.videoId}` : "https://www.youtube.com"}
-    >
+    <Link to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`}>
       <div className="pb-4 m-2 space-y-2 w-60">
         <div className="w-60">
-          <img src={video?.thumbnail[0]?.url} alt="" />
+          <img
+            src={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
+            alt={snippet?.title}
+          />
         </div>
         <div className="flex px-1 space-x-2">
-          <h5 className="text-xs text-white">{video?.title}</h5>
+          <h5 className="text-xs text-white">{snippet?.title}</h5>
         </div>
         <div className="text-xs text-gray-500 ">
-          <span className="block">{video.channelTitle}</span>
-
-          <div className="flex justify-between">
-            <span>{video.viewCount && video.viewCount} views</span>
-            <span>{video.publishedText}</span>
-          </div>
+          <span className="block">{snippet?.channelTitle}</span>
         </div>
       </div>
     </Link>
