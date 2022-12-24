@@ -4,8 +4,8 @@ import { Category } from "@mui/icons-material";
 import { Box, Stack } from "@mui/material";
 import React from "react";
 import { categories } from "../utils/constants";
-const selectedCategory = "New";
-const SideBar = () => {
+
+const SideBar = ({ selectedCategory, setselectedCategory }) => {
   return (
     <Stack
       direction="row"
@@ -17,6 +17,7 @@ const SideBar = () => {
     >
       {categories.map((c) => (
         <button
+          onClick={() => setselectedCategory(c.name)}
           style={{ background: c.name === selectedCategory && "#FC1503" }}
           className="text-white space-x-4 my-1 mx-4  flex items-center rounded-2xl p-2 hover:bg-[#FC1503]"
           key={c.name}
